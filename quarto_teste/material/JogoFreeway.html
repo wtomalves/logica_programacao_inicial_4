@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo Freeway</title>
+</head>
+<body>
+  <canvas width="500" height="400"></canvas>
+  <img hidden id="tela" src="imagens/estradaa.png" alt="">
+  <img hidden id="ator" src="imagens/ator-1.png" alt="Personagem">
+  <img hidden id="carro1" src="imagens/carro-1.png" alt="Carrinho 1">
+  <img hidden id="carro2" src="imagens/carro-2.png" alt="Carrinho 2">
+  <img hidden id="carro3" src="imagens/carro-3.png" alt="Carrinho 3">
+
+  <audio id="trilha" preload="metadata" autoplay loop>
+    <source src="sons/trilha.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="colide" preload="metadata" autoplay>
+    <source src="sons/colidiu.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="pontos" preload="metadata" autoplay>
+    <source src="sons/pontos.wav" type="audio/wav">
+  </audio>
+
+
+  <script src="imagem.js"></script>
+  <script src="personagem.js"></script>
+  <script src="carros.js"></script>
+
+  <script>
+    function desenhaJogo() {
+      limparTela();
+      telaDeFundo();
+      mostraPersogem();
+      mostraCarros();
+      movimentarCarro();
+      movimentarPersonagem();
+      placar();
+      trilha.play(); 
+
+
+    }
+
+    //variáveis de comunicação com canvas
+    let tela = document.querySelector('canvas');
+    let pincel = tela.getContext('2d');
+
+    //variaveis do som do jogo
+    let trilha = document.querySelector('#trilha');
+    let colide = document.querySelector('#colide');
+    let pontos = document.querySelector('#pontos');
+
+
+    setInterval(desenhaJogo, 20)
+    document.onkeydown = movimentarPersonagem;
+
+  </script>
+
+</body>
+</html>
