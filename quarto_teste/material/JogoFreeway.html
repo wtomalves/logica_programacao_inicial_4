@@ -13,15 +13,15 @@
   <img hidden id="carro2" src="imagens/carro-2.png" alt="Carrinho 2">
   <img hidden id="carro3" src="imagens/carro-3.png" alt="Carrinho 3">
 
-  <audio id="trilha" preload="metadata">
+  <audio id="trilha" preload="auto">
     <source src="sons/trilha.mp3" type="audio/mpeg">
   </audio>
 
-  <audio id="colide" preload="metadata" autoplay>
+  <audio id="colide" preload="metadata">
     <source src="sons/colidiu.mp3" type="audio/mpeg">
   </audio>
 
-  <audio id="pontos" preload="metadata" autoplay>
+  <audio id="pontos" preload="metadata">
     <source src="sons/pontos.wav" type="audio/wav">
   </audio>
 
@@ -37,9 +37,9 @@
       mostraPersogem();
       mostraCarros();
       movimentarCarro();
-      movimentarPersonagem();
       placar();
       trilha.play();
+
 
 
     }
@@ -54,8 +54,12 @@
     let pontos = document.querySelector('#pontos');
 
 
+
+
     setInterval(desenhaJogo, 20)
     document.onkeydown = movimentarPersonagem;
+
+
 
   </script>
 
